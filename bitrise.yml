@@ -41,6 +41,10 @@ workflows:
               echo " [!] TEST_OUTPUT value does not match the expected value!"
               exit 1
             fi
+    - git::https://github.com/bitrise-steplib/steps-go-toolkit-hello-world.git@master:
+        run_if: true
+        inputs:
+        - test_input: Second input example
 
   do-vendor-update:
     steps:
