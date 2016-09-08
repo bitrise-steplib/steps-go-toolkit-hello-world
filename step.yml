@@ -1,0 +1,28 @@
+title: "Hello Bitrise CLI Go Toolkit!"
+summary: Minimal sample Step which uses Bitrise CLI's Go Toolkit
+description: |
+  Minimal sample Step which uses Bitrise CLI's Go Toolkit
+website: https://github.com/bitrise-steplib/steps-go-toolkit-hello-world
+source_code_url: https://github.com/bitrise-steplib/steps-go-toolkit-hello-world
+support_url: https://github.com/bitrise-steplib/steps-go-toolkit-hello-world/issues
+host_os_tags:
+  - osx
+  - ubuntu
+type_tags:
+  - step-sample
+  - step-test
+is_requires_admin_user: false
+is_always_run: false
+is_skippable: false
+toolkit:
+  go:
+    package_name: github.com/bitrise-steplib/steps-go-toolkit-hello-world
+inputs:
+  - test_input:
+    opts:
+      title: "Test Input"
+      is_required: true
+outputs:
+  - TEST_OUTPUT:
+    opts:
+      title: "Test Output"
