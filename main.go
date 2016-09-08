@@ -4,14 +4,16 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+
+	"github.com/bitrise-io/go-utils/colorstring"
 )
 
 func main() {
-	fmt.Println("Hello Bitrise CLI Go Toolkit!!")
+	fmt.Println(colorstring.Green("Hello Bitrise CLI Go Toolkit!!"))
 
 	// print Go version
 	fmt.Println()
-	fmt.Print("Go version: ")
+	fmt.Print(colorstring.Blue("Go version: "))
 	{
 		cmd := exec.Command("go", "version")
 		cmd.Stdout = os.Stdout
@@ -21,11 +23,11 @@ func main() {
 
 	// input test
 	fmt.Println()
-	fmt.Println("Input test_input: ", os.Getenv("test_input"))
+	fmt.Println(colorstring.Blue("Input test_input: "), os.Getenv("test_input"))
 
 	// output test
 	fmt.Println()
-	fmt.Println("Generating output:")
+	fmt.Println(colorstring.Blue("Generating output ..."))
 	{
 		cmd := exec.Command("envman", "add",
 			"--key", "TEST_OUTPUT",
@@ -35,4 +37,5 @@ func main() {
 		cmd.Run()
 	}
 	fmt.Println()
+	fmt.Println(colorstring.Green("DONE"))
 }

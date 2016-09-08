@@ -41,3 +41,16 @@ workflows:
               echo " [!] TEST_OUTPUT value does not match the expected value!"
               exit 1
             fi
+
+  do-vendor-update:
+    steps:
+    - script:
+        inputs:
+        - content: |
+            #!/bin/bash
+            set -ex
+            go get -u -v github.com/tools/godep
+            rm -rf ./Godeps
+            rm -rf ./vendor
+            go get -t -d ./...
+            godep save ./...
