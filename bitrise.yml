@@ -22,6 +22,7 @@ workflows:
         inputs:
         - path: ./_tmp
         - is_create_path: true
+    # Run the step from a local path (./)
     - path::./:
         run_if: true
         inputs:
@@ -41,6 +42,7 @@ workflows:
               echo " [!] TEST_OUTPUT value does not match the expected value!"
               exit 1
             fi
+    # Example: run the step from Git 
     - git::https://github.com/bitrise-steplib/steps-go-toolkit-hello-world.git@master:
         run_if: true
         inputs:
